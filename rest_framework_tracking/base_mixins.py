@@ -4,6 +4,7 @@ import traceback
 
 from django.db import connection
 from django.utils.timezone import now
+from django.contrib.gis.geoip2 import GeoIP2
 
 
 logger = logging.getLogger(__name__)
@@ -69,6 +70,8 @@ class BaseLoggingMixin(object):
                     'response_ms': self._get_response_ms(),
                     'response': self._clean_data(rendered_content),
                     'status_code': response.status_code,
+                    'country': self._get_country(request),
+                    'city': self._get_city(request),
                 }
             )
             try:
@@ -178,3 +181,17 @@ class BaseLoggingMixin(object):
                 if key.lower() in SENSITIVE_FIELDS:
                     data[key] = self.CLEANED_SUBSTITUTE
         return data
+
+    def _get_country(self, request):
+        try:
+            g = GeoIP2()
+            return g.country(self._get_ip_address(request))['country_name']
+        except:
+            return None
+
+    def _get_city(self, request):
+        try:
+            g = GeoIP2()
+            return g.city(self._get_ip_address(request))['city']
+        except:
+            return None
