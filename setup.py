@@ -6,7 +6,7 @@ import sys
 from setuptools import setup
 
 
-name = 'drf-tracking'
+name = 'drf-tracking-geoip'
 package = 'rest_framework_tracking'
 description = 'Utils to log Django Rest Framework requests to the database'
 url = 'https://github.com/aschn/drf-tracking'
@@ -78,6 +78,7 @@ setup(
         'Django>=1.7',
         'djangorestframework>=3',
         'pytz',
+        'geoip2>=2.9.0',
     ],
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',

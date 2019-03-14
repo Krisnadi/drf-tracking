@@ -37,6 +37,8 @@ class BaseAPIRequestLog(models.Model):
     response = models.TextField(null=True, blank=True)
     errors = models.TextField(null=True, blank=True)
     status_code = models.PositiveIntegerField(null=True, blank=True)
+    country = models.CharField(max_length=200, null=True, blank=True)
+    city = models.CharField(max_length=200, null=True, blank=True)
     objects = PrefetchUserManager()
 
     class Meta:

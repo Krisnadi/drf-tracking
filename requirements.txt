@@ -16,3 +16,6 @@ tox
 wheel
 
 mock
+
+# location
+geoip2>=2.9.0

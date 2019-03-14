@@ -8,7 +8,7 @@ class APIRequestLogAdmin(admin.ModelAdmin):
                     'user', 'method',
                     'path', 'remote_addr', 'host',
                     'query_params')
-    list_filter = ('method', 'status_code')
+    list_filter = ('method', 'status_code', 'country')
     search_fields = ('path', 'user__email',)
     raw_id_fields = ('user', )
 

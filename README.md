@@ -1,4 +1,4 @@
-# drf-tracking
+# drf-tracking (forked)
 
 [![build-status-image]][travis]
 [![pypi-version]][pypi]
@@ -42,7 +42,7 @@ Django | Python | DRF
 Install using `pip`...
 
 ```bash
-$ pip install drf-tracking
+$ pip install drf-tracking-geoip
 ```
 
 Register with your Django project by adding `rest_framework_tracking`
@@ -51,6 +51,12 @@ Then run the migrations for the `APIRequestLog` model:
 
 ```bash
 $ python manage.py migrate
+```
+
+Add `GEOIP_PATH` to the project's `settings.py` file.
+
+```python
+GEOIP_PATH = os.path.join(BASE_DIR, 'geoip')
 ```
 
 ## Usage

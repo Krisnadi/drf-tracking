@@ -30,6 +30,8 @@ class Migration(migrations.Migration):
                 ('data', models.TextField(blank=True, null=True)),
                 ('response', models.TextField(blank=True, null=True)),
                 ('status_code', models.PositiveIntegerField(blank=True, null=True)),
+                ('country', models.CharField(blank=True, null=True, max_length=200)),
+                ('city', models.CharField(blank=True, null=True, max_length=200)),
                 ('user', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
             options={
